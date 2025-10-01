@@ -1,3 +1,4 @@
+# SuperClasse (Generalização)
 class Midia:
     def __init__(self, titulo, genero, avaliacao, ano, idioma, temporada=0, episodio=0):
         self.titulo = titulo
@@ -13,7 +14,7 @@ class Midia:
             return f"🎬 {self.titulo} | Nota: {self.avaliacao} | Ano: {self.ano} | Idioma: {self.idioma}"
         else:
             return f"📺 {self.titulo} | Nota: {self.avaliacao} | Ano: {self.ano} | Idioma: {self.idioma} | Temp: {self.temporada} | Ep: {self.episodio}"
-
+# SubClasses (Especificação)
 class Filme(Midia):
     def __init__(self, titulo, avaliacao, ano, idioma):
         super().__init__(titulo, "Filme", avaliacao, ano, idioma)
@@ -25,7 +26,7 @@ class Serie(Midia):
 class Anime(Midia):
     def __init__(self, titulo, avaliacao, ano, idioma, temporada, episodio):
         super().__init__(titulo, "Anime", avaliacao, ano, idioma, temporada, episodio)
-
+#Modelo principal de que armazena as midias
 class StreamingModel:
     def __init__(self):
         self.midia_disponiveis = []
@@ -61,7 +62,7 @@ class StreamingModel:
         if 0 <= indice < len(self.midia_destaque):
             midia = self.midia_destaque.pop(indice)
             self.midia_disponiveis.append(midia)
-
+#Modelo do usuario
 class UsuarioModel:
     def __init__(self):
         self.usuario = "hiro"
@@ -69,3 +70,4 @@ class UsuarioModel:
 
     def autenticar(self, usuario, senha):
         return usuario == self.usuario and senha == self.senha
+
